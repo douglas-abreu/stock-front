@@ -24,10 +24,11 @@
             />
             <ng-container *ngIf="this.categories$ | async as categories">
                 <select formControlName="category">
+                    <option [ngValue]="null" disabled>Selecione a categoria</option>
                     <option 
                     *ngFor="let category of categories.content"
                     [ngValue]="category" 
-                    [selected]="(productUpdate?.category == category ? category : null)"
+                    [selected]="(productUpdate?.category.id == category.id ? category : null)"
                     >{{category.name}}</option>
                 </select>
             </ng-container>
