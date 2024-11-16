@@ -1,0 +1,22 @@
+.header
+    display: flex
+    gap: 2.5rem
+    justify-content: flex-end
+    align-items: center
+    height: 6rem
+    div
+        display: flex
+        align-items: center
+        gap: 2rem
+        &:not(.user)
+            cursor: pointer
+        p
+            width: 100%
+            color: var(--blue)
+            font-size: 1rem
+            font-weight: 500
+        &:first-child
+            p
+                font-size: rem
+                font-weight: bold
+

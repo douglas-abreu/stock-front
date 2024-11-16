@@ -1,0 +1,10 @@
+<div class="header">
+  <div *ngIf="user$ | async as user" class="user">
+    <p>Bem-vindo! {{ user.data.username | uppercase }}</p>
+    <div *ngFor="let button of buttons">
+      <div *ngIf="user.data.permission.id == button.permission || button.permission == 0" (click)="button.action()">
+        <p>{{ button.title | uppercase }}</p>
+      </div>
+    </div>
+  </div>
+</div>
