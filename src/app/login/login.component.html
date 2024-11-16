@@ -1,0 +1,13 @@
+<div class="content">
+    <div class="login">
+        <div class="container">
+            <span class="title text">Estoque</span>
+            <hr/>
+            <form [formGroup]="form" class="login-form">
+                <input formControlName="username"  type="text" placeholder="Login"/>
+                <input formControlName="password" type="password" placeholder="Senha"/>
+                <button class="btn" type="submit" (click)="submitLogin()">ENTRAR</button>
+            </form>
+        </div>
+    </div>
+</div>

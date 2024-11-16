@@ -1,0 +1,60 @@
+
+
+.content 
+    background-color: var(--blue)  
+    height: calc(100vh - 3.25rem) 
+    .login
+        margin: auto
+        height: 100%
+        display: flex
+        justify-content: center
+        align-items: center
+        .container
+            background-color: var(--white)     
+            box-shadow: 0 .625rem .625rem 0px #00000040
+            border-radius: 1rem
+            display: flex
+            flex-direction: column
+            padding: 3.5rem
+            hr
+                margin: 1rem 0 1.5rem
+                align-self: center
+                color: var(--blue)
+                height: 1px
+                width: 80%
+            .text
+                color: var(--blue)
+                font-style: normal
+                text-align: center
+            .title
+                margin-top: 1.5rem
+                font-weight: 700
+                font-size: 1.5rem
+            .login-form
+                display: flex
+                flex-direction: column
+                gap: 1.5rem
+                width: 25rem
+                padding: 1rem
+                input
+                    border: none
+                    border-bottom: 1px solid var(--chinese-silver)
+                    font-size: 1.125rem
+                    height: 2.25rem
+                    background-color: white
+                    &:focus
+                        outline: none
+                input::placeholder
+                    color: var(--chinese-silver)
+                    opacity: 1
+                .btn
+                    background-color: var(--blue)
+                    color: var(--white)
+                    padding: .5rem
+                    border-radius: .5rem
+                    font-weight: 700
+                    cursor: pointer
+                    &:disabled
+                        background-color: var(--chinese-silver)
+                        opacity: 1
+                        cursor: default
