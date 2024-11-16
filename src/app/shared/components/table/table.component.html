@@ -1,0 +1,52 @@
+<div class="table-info">
+    <div class="filter-order">
+        <ng-content select="[button]"></ng-content>
+        <button *ngIf="hasFilter" class="filter-button" (click)="toggle()">
+            <img *ngIf="!isVisibleFilter" id="void" src="assets/icons/filter.svg"  alt="">
+            <img *ngIf="isVisibleFilter" id="filled" src="assets/icons/filter-fill.svg"  alt="">
+            <img [ngClass]="isVisibleFilter ? 'rotate' : ''" src="assets/icons/arrow-right.svg" id="arrow" alt="">
+        </button>
+        <div class="filter">
+          <div *ngIf="isVisibleFilter">
+              <div id="bg-filter" (click)="toggle()"></div>
+              <ng-content select="[filter]"></ng-content>
+          </div>
+        </div>
+        <ng-content select="[size]"></ng-content>
+    </div>
+    <div class="icons">
+        <div>
+          <ng-container *ngIf="hasEdit">
+            <img src="assets/icons/edit.svg" />
+            <span class="edit-text">editar</span>
+          </ng-container>
+        </div>
+        <div>
+          <ng-container *ngIf="hasDelete">
+            <img src="assets/icons/delete.svg" />
+            <span class="delete-text">excluir</span>
+          </ng-container>
+        </div>
+    </div>
+</div>
+<div *ngIf="data.content.length > 0">
+    <table id="table">
+        <thead>
+            <tr>
+                <th *ngFor="let title of titles">{{ title }}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-content select="[columns]"></ng-content>
+        </tbody>
+    </table>
+    <ng-content select="[paginationComp]"></ng-content>
+</div>
+<table *ngIf="data.content.length < 1">
+    <tbody body class="notFound">
+        <tr>
+            <td>Nenhum registro encontrado</td>
+        </tr>
+    </tbody>
+</table>

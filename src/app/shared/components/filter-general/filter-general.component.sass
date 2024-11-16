@@ -1,0 +1,49 @@
+form
+  color: var(--blue)
+  background-color: var(--white)
+  border-radius: .25rem
+  border: 1px solid var(--blue)
+  display: flex
+  flex-direction: column
+  gap: 1.5rem
+  margin-top: -1.5rem
+  padding: 1.5rem
+  position: absolute
+  width: 30rem
+  z-index: 99
+
+  h2
+    font-size: 1.5rem
+    font-weight: 700
+
+  h3
+    text-transform: uppercase
+    font-size: 1rem
+    font-weight: 600
+
+  .actions
+    margin-top: 1rem
+    display: flex
+    gap: 1rem
+    align-items: center
+    justify-content: left
+    font-size: 1.25rem
+
+    span
+      color: var(--white)
+      font-weight: 700
+      background-color: var(--blue)
+      padding: .5rem
+      border-radius: .375rem
+      cursor: pointer
+  input
+    border: none
+    border-bottom: 1px solid var(--chinese-silver)
+    font-size: 1.125rem
+    height: 2.25rem
+    background-color: white
+    &:focus
+        outline: none
+  input::placeholder
+      color: var(--chinese-silver)
+      opacity: 1

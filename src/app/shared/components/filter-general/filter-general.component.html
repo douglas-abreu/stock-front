@@ -1,0 +1,11 @@
+<form [formGroup]="form">
+  <h2>Filtros</h2>
+  <input
+    placeholder="Palavra-chave"
+    formControlName="keyword"
+  />
+  <div class="actions">
+    <span (click)="search()">APLICAR</span>
+    <span (click)="resetForm()">LIMPAR</span>
+  </div>
+</form>

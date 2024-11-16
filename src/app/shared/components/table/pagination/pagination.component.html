@@ -1,0 +1,95 @@
+<div id="pagination" *ngIf="pagination">
+  <p>
+    <span>{{ pagination.offset + 1 }}</span> a
+    <span>{{
+      pagination.offset + pagination.numberOfElements <
+      pagination.totalNumberOfElements
+        ? pagination.offset + pagination.numberOfElements
+        : pagination.totalNumberOfElements
+    }}</span>
+    (de <span>{{ pagination.totalNumberOfElements }}</span> registros)
+  </p>
+  <div id="pages">
+    <span
+      class="nav-button"
+      *ngIf="pagination.hasPreviousPage"
+      (click)="emitPage(pagination.page - 2)"
+      >Anterior</span
+    >
+
+    <div *ngIf="pagination.numberOfPages < 6; else collapsed_pages">
+      <ng-container *ngIf="pagination.numberOfPages > 1">
+        <span
+          [class.active]="i + 1 == pagination.page"
+          (click)="emitPage(i)"
+          *ngFor="
+            let page of [].constructor(pagination.numberOfPages);
+            let i = index
+          "
+          >{{ i + 1 | number : "2.0-0" }}</span
+        >
+      </ng-container>
+    </div>
+
+    <ng-template #collapsed_pages>
+      <!-- 01 -->
+      <span [class.active]="1 == pagination.page" (click)="emitPage(0)"
+        >01</span
+      >
+
+      <!-- 02 -->
+      <span
+        *ngIf="
+          pagination.page <= 2 || pagination.page >= pagination.numberOfPages - 1
+        "
+        [class.active]="2 == pagination.page"
+        (click)="emitPage(1)"
+        >02</span
+      >
+
+      <span
+      >...</span>
+
+      <!-- page -->
+      <span
+        *ngIf="
+          pagination.page > 2 && pagination.page < pagination.numberOfPages - 1
+        "
+        class="active"
+        (click)="emitPage(pagination.page)"
+        >{{ pagination.page | number : "2.0-0" }}
+      </span>
+
+      <span
+        *ngIf="
+          pagination.page > 2 && pagination.page < pagination.numberOfPages - 1
+        "
+        >...</span
+      >
+
+      <!-- last last page -->
+      <span
+        *ngIf="
+          pagination.page <= 2 || pagination.page >= pagination.numberOfPages - 1
+        "
+        [class.active]="pagination.numberOfPages - 1 == pagination.page"
+        (click)="emitPage(pagination.numberOfPages - 2)"
+        >{{ pagination.numberOfPages - 1 | number : "2.0-0" }}
+      </span>
+
+      <!-- last page -->
+      <span
+        [class.active]="pagination.numberOfPages == pagination.page"
+        (click)="emitPage(pagination.numberOfPages - 1)"
+        >{{ pagination.numberOfPages | number : "2.0-0" }}
+      </span>
+    </ng-template>
+
+    <span
+      class="nav-button"
+      *ngIf="pagination.hasNextPage && pagination.numberOfPages > 1"
+      (click)="emitPage(pagination.page)"
+      >Próximo</span
+    >
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="ordination">
+  <p>Mostrar</p>
+
+  <div #buttons [ngClass]="this.isVisiblePageSize ? 'border-radious buttons' : 'buttons'">
+    <span (click)="toggle()">
+      {{pageSize}}
+    </span>
+    <span (click)="toggle()">
+      <img src="assets/icons/arrow-down.svg" alt="">
+    </span>
+    <div *ngIf="this.isVisiblePageSize">
+      <div class="dropdown" [@dropDownPagination]>
+        <span class="menu-item" (click)="changePageSize(5)">5</span>
+        <span class="menu-item" (click)="changePageSize(10)">10</span>
+        <span class="menu-item" (click)="changePageSize(15)">15</span>
+      </div>
+      <div id="bg-filter" (click)="toggle()"></div>
+    </div>
+  </div>
+  <p>registros</p>
+</div>
