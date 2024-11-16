@@ -44,6 +44,7 @@ export class ListCategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCategorys({ size: 10, page: 0 });
+    this.getLoggedUser();
   }
 
   getLoggedUser(){
