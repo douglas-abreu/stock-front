@@ -1,0 +1,28 @@
+<app-header-home></app-header-home>
+
+<div class="content">
+    <div class="title">{{ "cadastrar usuário" | uppercase }}</div>
+    <form [formGroup]="form">
+        <div class="grid">
+            <input 
+                placeholder="Usuário" 
+                formControlName="username" 
+            />
+            <input
+                type="password"
+                placeholder="Senha"
+                formControlName="password"
+            />
+        </div>
+    </form>
+    
+    <div class="button">
+        <button class="btn"
+          [disabled]="form.invalid"
+          (click)="submitUser()"
+        >
+            {{ 'cadastrar usuário'| uppercase }}
+        </button>
+    </div>
+    
+</div>
