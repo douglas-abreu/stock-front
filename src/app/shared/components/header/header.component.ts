@@ -27,42 +27,30 @@ export class HeaderComponent {
     {
       alt: 'Cadastrar Produto',
       title: 'Cadastrar Produto',
-      class: 'delete',
       action: () => this.router.navigate(['/product']),
+      permission: 1
+    },
+    {
+      alt: 'Cadastrar Categoria',
+      title: 'Cadastrar Categoria',
+      action: () => this.router.navigate(['/category']),
       permission: 1
     },
     {
       alt: 'Listar Produto',
       title: 'Listar Produto',
-      class: 'delete',
       action: () => this.router.navigate(['/list-product']),
       permission: 0
     },
     {
-      alt: 'Cadastrar Categoria',
-      title: 'Cadastrar Categoria',
-      class: 'delete',
-      action: () => this.router.navigate(['/category']),
-      permission: 1
-    },
-    {
       alt: 'Listar Categorias',
       title: 'Listar Categorias',
-      class: 'delete',
       action: () => this.router.navigate(['/list-category']),
       permission: 0
     },
     {
-      alt: 'Cadastrar usuário',
-      title: 'Cadastrar usuário',
-      class: 'delete',
-      action: () => this.router.navigate(['/user']),
-      permission: 1
-    },
-    {
       alt: 'Sair',
       title: 'Sair',
-      class: 'delete',
       action: () => this.userService.revokeToken(),
       permission: 0
     },
