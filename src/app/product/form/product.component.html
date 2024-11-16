@@ -1,0 +1,46 @@
+<app-header-home></app-header-home>
+
+<div class="content">
+    <div class="title">{{ (productUpdate ? 'atualizar' : 'cadastrar').concat(' produto') | uppercase }}</div>
+    <form [formGroup]="form">
+        <div class="grid">
+            <input 
+                placeholder="Nome" 
+                formControlName="name" 
+            />
+            <input
+                maxlength="13" 
+                placeholder="Código de Barras" 
+                formControlName="barCode" 
+            />
+            <input 
+                type="number"
+                placeholder="Quantidade" 
+                formControlName="quantity" 
+            />
+            <input
+                placeholder="Descrição"
+                formControlName="description"
+            />
+            <ng-container *ngIf="this.categories$ | async as categories">
+                <select formControlName="category">
+                    <option 
+                    *ngFor="let category of categories.content"
+                    [ngValue]="category" 
+                    [selected]="(productUpdate?.category == category ? category : null)"
+                    >{{category.name}}</option>
+                </select>
+            </ng-container>
+        </div>
+    </form>
+    
+    <div class="button">
+        <button class="btn"
+          [disabled]="form.invalid"
+          (click)="submitProduct()"
+        >
+            {{ (productUpdate ? 'atualizar' : 'cadastrar').concat(' produto') | uppercase }}
+        </button>
+    </div>
+    
+</div>

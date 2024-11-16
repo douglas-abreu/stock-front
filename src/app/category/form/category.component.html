@@ -1,0 +1,25 @@
+<app-header-home></app-header-home>
+
+<div class="content">
+    <div class="title">
+        {{ (categoryUpdate ? 'atualizar' : 'cadastrar').concat(' categoria') | uppercase }}
+    </div>
+    <form [formGroup]="form">
+        <div class="grid">
+            <input 
+                placeholder="Nome" 
+                formControlName="name" 
+            />
+        </div>
+    </form>
+    
+    <div class="button">
+        <button class="btn"
+          [disabled]="form.invalid"
+          (click)="submitCategory()"
+        >
+        {{ (categoryUpdate ? 'atualizar' : 'cadastrar').concat(' categoria') | uppercase }}
+        </button>
+    </div>
+    
+</div>

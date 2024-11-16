@@ -1,0 +1,44 @@
+.content
+    min-height: calc(100vh - 9.75rem)
+    padding: 12rem
+    .title
+        margin-bottom: 2rem
+        font-size: 2rem
+        color: var(--blue)
+        font-weight: 700
+    form
+        .full-line
+            padding-bottom: 2rem
+        .grid
+            display: flex
+            flex-direction: column
+            gap: 2rem
+
+            input
+                border: none
+                border-bottom: 1px solid var(--chinese-silver)
+                font-size: 1.125rem
+                height: 2.25rem
+                background-color: white
+                &:focus
+                    outline: none
+            input::placeholder
+                color: var(--chinese-silver)
+                opacity: 1
+    .button
+        margin-top: 3rem
+        display: flex
+        justify-content: space-between
+        align-items: center
+        .btn
+            background-color: var(--blue)
+            color: var(--white)
+            padding: .5rem
+            border-radius: .5rem
+            font-weight: 700
+            cursor: pointer
+            &:disabled
+                background-color: var(--chinese-silver)
+                opacity: 1
+                cursor: default
+                
