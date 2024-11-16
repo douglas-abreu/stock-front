@@ -1,0 +1,21 @@
+<app-header-home></app-header-home>
+<div class="content">
+        <app-table
+        *ngIf="categorys$ | async as categorys"
+        [titles]="['Nome']"
+        [data]='categorys'
+        >
+        <app-page-size [pageSize]='pageSize' size (pageSizeChange)="changePageSize($event)"></app-page-size>
+        <app-filter-general filter (filterChange)="applyFilter($event)" [(filter)]="filter"></app-filter-general>
+        <tr columns *ngFor="let category of categorys.content">
+            <td>{{category.name}}</td>
+            <ng-container *ngIf="user$ | async as user">
+                <td *ngIf="user.data.permission.id == 1">
+                    <img src="assets/icons/edit.svg" (click)="editEntity(category)" />
+                    <img src="assets/icons/remove.svg" (click)="deleteEntity(category.id)" />
+                </td>
+            </ng-container>
+        </tr>
+        <app-pagination paginationComp [pagination]='categorys.pagination' (pageChange)="changePage($event)"></app-pagination>
+    </app-table>
+</div>

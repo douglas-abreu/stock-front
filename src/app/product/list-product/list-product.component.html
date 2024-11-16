@@ -1,0 +1,25 @@
+<app-header-home></app-header-home>
+<div class="content">
+    <app-table
+        *ngIf="products$ | async as products"
+        [titles]="['Nome','Código de Barras','Quantidade','Descrição', 'Categoria']"
+        [data]='products'
+        >
+        <app-page-size [pageSize]='pageSize' size (pageSizeChange)="changePageSize($event)"></app-page-size>
+        <app-filter-general filter (filterChange)="applyFilter($event)" [(filter)]="filter"></app-filter-general>
+        <tr columns *ngFor="let product of products.content">
+            <td>{{product.name}}</td>
+            <td>{{product.barCode}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.category.name}}</td>
+            <ng-container *ngIf="user$ | async as user">
+                <td *ngIf="user.data.permission.id == 1">
+                    <img src="assets/icons/edit.svg" (click)="editEntity(product)" />
+                    <img src="assets/icons/remove.svg" (click)="deleteEntity(product.id)" />
+                </td>
+            </ng-container>
+        </tr>
+        <app-pagination paginationComp [pagination]='products.pagination' (pageChange)="changePage($event)"></app-pagination>
+    </app-table>
+</div>
